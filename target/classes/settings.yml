@@ -1,9 +1,0 @@
-Command_Aliases: [worldmanager, wm]
-Locale: en
-Prefix: "&8[&cWorldManager&8]&7"
-Log_Lag_Over_Milis: 10000
-Debug: []
-Version: 1
-
-camp-world-schematic-file: "camp_warp.schem"
-world-deletion-timeout-seconds: 18000
