@@ -24,6 +24,10 @@ public class HandleDelete extends SimpleSubCommand {
 		if(args.length == 1) {
 			String worldName = args[0];
 			World world = Bukkit.getWorld(worldName);
+			if(world == null) {
+				sendCustomMessageColor("The world " + Text.aqua + worldName + Text.orange + " does not exist and thus can not be deleted.", player, Text.orange);
+				return;
+			}
 			Bukkit.unloadWorld(world, false);
 			if(world != null) {
 				boolean success = Util.removeWorld(world);
