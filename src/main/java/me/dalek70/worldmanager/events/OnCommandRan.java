@@ -7,7 +7,7 @@ import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.mineacademy.fo.annotation.AutoRegister;
 
 @AutoRegister
-public class OnCommandRan implements Listener {
+public final class OnCommandRan implements Listener {
 	@EventHandler
 	public void onCommand(PlayerCommandPreprocessEvent event) {
 		if(WorldManager.createdWorlds.contains(event.getPlayer().getWorld().getName())) {
