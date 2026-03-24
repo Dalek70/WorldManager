@@ -48,6 +48,7 @@ public class HandleCreate extends SimpleSubCommand {
 					System.out.println("Creating world took " + (num2 - num));
 				} catch (Exception e) {
 					sendCustomMessageColor("Error creating world: " + e.getMessage(), player, Text.red);
+					return;
 				}
 
 				// get schematic file
