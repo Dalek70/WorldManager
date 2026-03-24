@@ -32,7 +32,16 @@ public class WorldManager extends SimplePlugin {
 		try {
 			registerCommands(new CleanWorldManager());
 			Common.runTimer(20 * 30, () -> {
-
+				for (World world : worldDeletionTimeout.keySet()) {
+					int timeout = worldDeletionTimeout.get(world).getKey();
+					long lastVisitTime = worldDeletionTimeout.get(world).getValue();
+					if (Util.secondsSinceLastVisit(lastVisitTime) >= timeout) {
+						Common.log("Deleting world " + world.getName() + " due to inactivity");
+						Util.deleteWorldFolder(world.getWorldFolder());
+						worldDeletionTimeout.remove(world);
+						createdWorlds.remove(world.getName());
+					}
+				}
 			});
 		} catch (Exception e) {
 			Common.warning("Failed to register WorldManager command:");
@@ -40,6 +49,5 @@ public class WorldManager extends SimplePlugin {
 			Common.warning("Disabling plugin");
 			Bukkit.getPluginManager().disablePlugin(this);
 		}
-
 	}
 }
