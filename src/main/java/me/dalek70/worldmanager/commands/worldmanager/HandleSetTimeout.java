@@ -15,6 +15,7 @@ public class HandleSetTimeout extends SimpleSubCommand {
 	public HandleSetTimeout() {
 		super("settimeout");
 		setUsage("<world-name> <timeout-in-seconds>");
+		setPermission("worldmanager.command.settimeout");
 	}
 
 	@Override

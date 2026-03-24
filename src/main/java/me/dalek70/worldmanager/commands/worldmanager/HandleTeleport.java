@@ -13,6 +13,7 @@ import static me.dalek70.worldmanager.Util.sendCustomMessageColor;
 public class HandleTeleport extends SimpleSubCommand {
 	public HandleTeleport() {
 		super("teleport");
+		setPermission("worldmanager.command.teleport");
 	}
 
 	@Override

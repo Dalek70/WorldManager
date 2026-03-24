@@ -13,6 +13,7 @@ import static me.dalek70.worldmanager.Util.sendCustomMessageColor;
 public class HandleDelete extends SimpleSubCommand {
 	public HandleDelete() {
 		super("delete");
+		setPermission("worldmanager.command.delete");
 	}
 
 	@Override
@@ -23,6 +24,7 @@ public class HandleDelete extends SimpleSubCommand {
 		if(args.length == 1) {
 			String worldName = args[0];
 			World world = Bukkit.getWorld(worldName);
+			Bukkit.unloadWorld(world, false);
 			if(world != null) {
 				boolean success = Util.removeWorld(world);
 				if(success) {

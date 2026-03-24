@@ -10,6 +10,7 @@ import static me.dalek70.worldmanager.Util.sendCustomMessageColor;
 public class HandleList extends SimpleSubCommand {
 	public HandleList() {
 		super("list");
+		setPermission("worldmanager.command.list");
 	}
 
 	@Override

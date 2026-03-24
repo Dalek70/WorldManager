@@ -20,6 +20,7 @@ public class HandleCreate extends SimpleSubCommand {
 	public HandleCreate() {
 		super("create");
 		setUsage("<world-name> [schematic-file]");
+		setPermission("worldmanager.command.create");
 	}
 
 	@Override
@@ -58,7 +59,7 @@ public class HandleCreate extends SimpleSubCommand {
 				// do a check to see if the user provided a custom schematic file name
 				if(args.length == 2) {
 					// paste in the custom schematic
-					schemFile = new File(faweFolder, GetSetting.getSettingString("world-schematic-file"));
+					schemFile = new File(faweFolder, args[1]);
 
 					try {
 						Util.pasteSchematicAsync(schemFile, world.getSpawnLocation());
