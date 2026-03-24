@@ -36,6 +36,7 @@ public class HandleSetTimeout extends SimpleSubCommand {
 				timeoutValue = Integer.parseInt(args[1]);
 			} catch (Exception e) {
 				sendCustomMessageColor("The timeout value must be a valid number (in seconds).", player, Text.red);
+				return;
 			}
 
 			// get the world object from the world name and send the player a message if the world does not exist.
@@ -43,6 +44,7 @@ public class HandleSetTimeout extends SimpleSubCommand {
 				world = Bukkit.getWorld(worldName);
 			} catch (Exception e) {
 				sendCustomMessageColor("The world " + Text.orange + worldName + Text.red + " does not exist.", player, Text.red);
+				return;
 			}
 
 			Map<World, Tuple<Integer, Long>> worldDeletionTimeout;
