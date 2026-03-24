@@ -50,7 +50,7 @@ public class HandleCreate extends SimpleSubCommand {
 				}
 
 				// get schematic file
-				File schemFile = new File(faweFolder, GetSetting.getSettingString("camp-world-schematic-file"));
+				File schemFile = new File(faweFolder, GetSetting.getSettingString("world-schematic-file"));
 
 				// update the world object after creation
 				world = Bukkit.getWorld(worldName);
@@ -58,7 +58,7 @@ public class HandleCreate extends SimpleSubCommand {
 				// do a check to see if the user provided a custom schematic file name
 				if(args.length == 2) {
 					// paste in the custom schematic
-					schemFile = new File(faweFolder, GetSetting.getSettingString("camp-world-schematic-file"));
+					schemFile = new File(faweFolder, GetSetting.getSettingString("world-schematic-file"));
 
 					try {
 						Util.pasteSchematicAsync(schemFile, world.getSpawnLocation());

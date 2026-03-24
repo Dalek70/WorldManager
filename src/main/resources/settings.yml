@@ -5,5 +5,5 @@ Log_Lag_Over_Milis: 10000
 Debug: []
 Version: 1
 
-camp-world-schematic-file: "camp_warp.schem"
+world-schematic-file: "camp_warp.schem"
 world-deletion-timeout-seconds: 18000
