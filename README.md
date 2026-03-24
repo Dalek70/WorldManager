@@ -20,14 +20,12 @@ WorldManager is a Minecraft plugin that creates simple private worlds, pastes a 
 - FastAsyncWorldEdit installed on the server
 - WorldEdit support available through FAWE
 
-The plugin also declares soft dependencies for several common plugins, but they are optional.
-
 ## Build
 
 To build the plugin jar with Maven:
 
 ```bash
-mvn clean package
+mvn clean install
 ```
 
 The shaded jar will be created in the `target` folder.
@@ -51,18 +49,8 @@ Main configuration is in `src/main/resources/settings.yml` and is copied to the 
 - `Command_Aliases` - aliases for the command group
 - `Locale` - locale file to use
 - `Prefix` - chat prefix format
-- `Log_Lag_Over_Milis` - lag logging threshold
-- `Debug` - debug categories
-- `Version` - config version
 - `world-schematic-file` - schematic file name inside the FAWE schematics folder
 - `world-deletion-timeout-seconds` - idle time before a world is deleted
-
-### Localization
-
-Messages are stored in:
-
-- `localization/messages_en.yml`
-- `localization/messages_tr.yml`
 
 ## Commands
 
@@ -85,10 +73,11 @@ The active command handlers explicitly check these permission nodes:
 - `worldmanager.command.teleport.self`
 - `worldmanager.command.teleport.all`
 - `worldmanager.command.teleport.world.<worldname>`
+- `worldmanager.command.create`
+- `worldmanager.command.delete`
+- `worldmanager.command.settimeout`
 
 Replace `<worldname>` with the lowercase world name you want to allow.
-
-The other subcommands are handled by the command framework or by plugin-level command registration, so their access control may be defined elsewhere in your server setup.
 
 ## Behavior
 
@@ -100,7 +89,6 @@ The other subcommands are handled by the command framework or by plugin-level co
 
 - The plugin expects FAWE's `schematics` folder to exist under the FAWE plugin data folder.
 - If a schematic cannot be found, world creation will fail and the world folder may be cleaned up.
-- There is a legacy command implementation in `src/main/java/me/dalek70/worldmanager/commands/WorldManager.java`, but the active command group registered at startup is `CleanWorldManager`.
 
 ## License
 
