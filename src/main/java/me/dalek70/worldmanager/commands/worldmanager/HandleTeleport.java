@@ -14,6 +14,7 @@ public class HandleTeleport extends SimpleSubCommand {
 	public HandleTeleport() {
 		super("teleport");
 		setPermission("worldmanager.command.teleport");
+		setUsage("<world-name> [-all]");
 	}
 
 	@Override
