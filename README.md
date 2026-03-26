@@ -42,6 +42,7 @@ There is also an `build.xml` file for Ant-based copy-to-server workflows, but Ma
 ## Configuration
 
 Main configuration is in `src/main/resources/settings.yml` and is copied to the plugin folder on first run.
+And the plugin config would be in plugins/WorldManager/settings.yml
 
 ### Settings
 
