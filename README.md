@@ -18,7 +18,6 @@ WorldManager is a Minecraft plugin that creates simple private worlds, pastes a 
 - Maven for building from source
 - Foundation library from MineAcademy, handled by the Maven build
 - FastAsyncWorldEdit installed on the server
-- WorldEdit support available through FAWE
 
 ## Build
 
@@ -49,8 +48,8 @@ Main configuration is in `src/main/resources/settings.yml` and is copied to the 
 - `Command_Aliases` - aliases for the command group
 - `Locale` - locale file to use
 - `Prefix` - chat prefix format
-- `world-schematic-file` - schematic file name inside the FAWE schematics folder
-- `world-deletion-timeout-seconds` - idle time before a world is deleted
+- `world-schematic-file` - default schematic file name inside the FAWE schematics folder
+- `world-deletion-timeout-seconds` - default idle time before a world is deleted
 
 ## Commands
 
