@@ -42,6 +42,7 @@ public class WorldManager extends SimplePlugin {
 		for(String worldName : worlds) {
 			WorldCreator worldCreator = new WorldCreator(worldName);
 			worldCreator.generator(new VoidChunkGenerator());
+			Bukkit.createWorld(worldCreator);
 		}
 		createdWorlds.addAll(worlds);
 		Common.log("Loaded " + worlds.size() + " world(s) from config");
