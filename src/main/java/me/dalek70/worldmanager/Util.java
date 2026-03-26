@@ -79,4 +79,11 @@ public class Util {
 		deleteWorldFolder(world.getWorldFolder());
 		return returnValue;
 	}
+
+	public static void removePlayersFromWorld(World world) {
+		for(Player player : world.getPlayers()) {
+			player.teleport(Bukkit.getWorlds().get(0).getSpawnLocation());
+			sendCustomMessageColor("You have been teleported to spawn because the world you were in is being deleted.", player, Text.orange);
+		}
+	}
 }
