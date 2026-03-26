@@ -14,6 +14,7 @@ public class HandleDelete extends SimpleSubCommand {
 	public HandleDelete() {
 		super("delete");
 		setPermission("worldmanager.command.delete");
+		setUsage("<world-name>");
 	}
 
 	@Override
@@ -23,23 +24,21 @@ public class HandleDelete extends SimpleSubCommand {
 
 		if(args.length == 1) {
 			String worldName = args[0];
-			World world = Bukkit.getWorld(worldName);
-			if(world == null) {
-				sendCustomMessageColor("The world " + Text.aqua + worldName + Text.orange + " does not exist and thus can not be deleted.", player, Text.orange);
-				return;
-			}
-			Bukkit.unloadWorld(world, false);
-			if(world != null) {
-				Util.removePlayersFromWorld(world);
-				boolean success = Util.removeWorld(world);
-				if(success) {
-					WorldManager.createdWorlds.remove(worldName);
-					sendCustomMessageColor("The world " + Text.aqua + worldName + Text.orange + " has been deleted successfully.", player, Text.orange);
+			try {
+				World world = Bukkit.getWorld(worldName);
+				if(world != null) {
+					Bukkit.unloadWorld(world, false);
+					boolean success = Util.removeWorld(world);
+					if(success) {
+						WorldManager.createdWorlds.remove(worldName);
+						sendCustomMessageColor("The world " + Text.aqua + worldName + Text.orange + " has been deleted successfully.", player, Text.orange);
+					}
 				} else {
-					sendCustomMessageColor("An error occurred while trying to delete the world " + Text.aqua + worldName + Text.red + ".", player, Text.red);
+					sendCustomMessageColor("The world " + Text.aqua + worldName + Text.orange + " does not exist and thus can not be deleted.", player, Text.orange);
 				}
-			} else {
-				sendCustomMessageColor("The world " + Text.aqua + worldName + Text.orange + " does not exist and thus can not be deleted.", player, Text.orange);
+			} catch (Exception e) {
+				sendCustomMessageColor("Error deleting world: " + e.getMessage(), player, Text.red);
+				e.printStackTrace();
 			}
 		}
 	}
