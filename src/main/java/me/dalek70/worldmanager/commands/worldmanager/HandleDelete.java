@@ -30,10 +30,11 @@ public class HandleDelete extends SimpleSubCommand {
 			}
 			Bukkit.unloadWorld(world, false);
 			if(world != null) {
+				Util.removePlayersFromWorld(world);
 				boolean success = Util.removeWorld(world);
 				if(success) {
-					sendCustomMessageColor("The world " + Text.aqua + worldName + Text.orange + " has been deleted successfully.", player, Text.orange);
 					WorldManager.createdWorlds.remove(worldName);
+					sendCustomMessageColor("The world " + Text.aqua + worldName + Text.orange + " has been deleted successfully.", player, Text.orange);
 				} else {
 					sendCustomMessageColor("An error occurred while trying to delete the world " + Text.aqua + worldName + Text.red + ".", player, Text.red);
 				}
